@@ -37,6 +37,8 @@ jobs:
   printEnv:
     resources:
       instance-type: C4
+    needs:
+      - cloneStyleGAN2Repo
     uses: script@v1
     with:
       script: |-
