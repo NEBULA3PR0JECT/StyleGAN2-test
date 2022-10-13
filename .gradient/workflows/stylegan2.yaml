@@ -26,7 +26,7 @@ jobs:
         type: volume
     uses: git-checkout@v1
     with:
-      url: https://github.com/NVlabs/stylegan2.git
+      url: https://github.com/NEBULA3PR0JECT/StyleGAN2-test.git
 
   # 2. Get pretrained cat model
 
@@ -40,6 +40,7 @@ jobs:
     uses: script@v1
     with:
       script: |-
+        cp -R /inputs/repo /stylegan2
         cd /stylegan2
         python run_test.py
       image: python:3
