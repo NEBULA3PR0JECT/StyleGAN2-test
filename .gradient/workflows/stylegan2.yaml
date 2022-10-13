@@ -39,6 +39,8 @@ jobs:
       instance-type: C4
     needs:
       - cloneStyleGAN2Repo
+    inputs:
+      repo: cloneStyleGAN2Repo.outputs.repo
     uses: script@v1
     with:
       script: |-
