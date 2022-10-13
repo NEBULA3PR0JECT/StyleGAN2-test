@@ -40,6 +40,7 @@ jobs:
     uses: script@v1
     with:
       script: |-
+        cd /stylegan2
         python run_test.py
       image: python:3
 
