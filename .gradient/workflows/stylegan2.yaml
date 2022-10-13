@@ -34,11 +34,26 @@ jobs:
   # We copy the .pkl in this step, then refer to the copy via getPretrainedModelCats.outputs.pretrainedNetwork
   # below to avoid copying it again in the next steps
 
-  printEnv:
+  printEnv-1:
     resources:
       instance-type: C4
     needs:
       - cloneStyleGAN2Repo
+    inputs:
+      repo: cloneStyleGAN2Repo.outputs.repo
+    uses: script@v1
+    with:
+      script: |-
+        cp -R /inputs/repo /stylegan2
+        cd /stylegan2
+        python run_test.py
+      image: python:3
+
+  printEnv-2:
+    resources:
+      instance-type: C4
+    needs:
+      - printEnv-1
     inputs:
       repo: cloneStyleGAN2Repo.outputs.repo
     uses: script@v1
