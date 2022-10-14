@@ -50,8 +50,8 @@ jobs:
       instance-type: C4
     needs:
       - printEnv1
-    inputs:
-      repo: cloneStyleGAN2Repo.outputs.repo
+    # inputs:
+    #   repo: cloneStyleGAN2Repo.outputs.repo
     uses: script@v1
     with:
       script: |-
