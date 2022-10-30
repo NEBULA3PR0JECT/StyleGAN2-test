@@ -9,16 +9,13 @@
 # Trigger Workflow to run on any update (commit) to the repository when linked to a Gradient project
 # (uncomment to activate)
 
-on:
- github:
-   branches:
-     only: main
+# on:
+#  github:
+#    branches:
+#      only: main
 
-defaults:
-  env:
-    PIPELINE_ID: 12345678
 jobs:
-
+    
   # 1. Clone StyleGAN repo into managed storage provider dataset
 
   cloneStyleGAN2Repo:
@@ -31,6 +28,7 @@ jobs:
     with:
       url: https://github.com/NEBULA3PR0JECT/StyleGAN2-test.git
 
+
   # 2. running jobs
 
   printEnv1:
@@ -40,6 +38,8 @@ jobs:
       - cloneStyleGAN2Repo
     inputs:
       repo: cloneStyleGAN2Repo.outputs.repo
+    env:
+      PIPELINE_ID: '12345678'
     uses: script@v1
     with:
       script: |-
@@ -55,6 +55,8 @@ jobs:
       - cloneStyleGAN2Repo
     inputs:
       repo: cloneStyleGAN2Repo.outputs.repo
+    env:
+      PIPELINE_ID: '12345678'
     uses: script@v1
     with:
       script: |-

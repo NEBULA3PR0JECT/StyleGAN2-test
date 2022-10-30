@@ -14,9 +14,7 @@ on:
    branches:
      only: main
 
-defaults:
-  env:
-    PIPELINE_ID: 12345678
+
 jobs:
 
   # 1. Clone StyleGAN repo into managed storage provider dataset
