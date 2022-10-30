@@ -45,7 +45,7 @@ jobs:
       script: |-
         cp -R /inputs/repo /stylegan2
         cd /stylegan2
-        python run_test.py
+        python run_sprint4.py
       image: python:3
 
   printEnv2:
